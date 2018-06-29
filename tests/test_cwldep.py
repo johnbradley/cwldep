@@ -60,6 +60,7 @@ class DownloadTestCase(unittest.TestCase):
         mock_logging.warn.assert_called_with('Upstream has changed: %s', 'myrelpath')
         mock_requests.get.assert_called_with('someurl', stream=True)
         mock_os.rename.assert_not_called()
+        mock_os.remove.assert_called_with('myfile.cwl_download_')
 
     @patch('cwldep.os')
     @patch('cwldep.logging')
